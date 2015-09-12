@@ -27,7 +27,7 @@ PopupController.prototype = {
         console.log(chrome.extension.lastError.message)
       }
       self.buffer.tags = getCheckboxesValue(document.querySelectorAll('input[name="tags[]"]:checked'))
-      self.output.textContent = YAML.dump(self.buffer);
+      self.output.textContent = YAML.dump(self.buffer, 2, 2);
     })
   },
 };
