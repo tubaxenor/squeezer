@@ -1,12 +1,11 @@
-var getCheckboxesValue = function(boxes) {
-  var result = [];
-  [].forEach.call(boxes, function(element) {
-    result.push(element.value);
-  });
+// var getCheckboxesValue = function(boxes) {
+//   var result = [];
+//   [].forEach.call(boxes, function(element) {
+//     result.push(element.value);
+//   });
 
-  return result;
-};
-
+//   return result;
+// };
 
 var PopupController = function () {
   this.button = document.getElementById('button');
@@ -26,7 +25,8 @@ PopupController.prototype = {
       if (chrome.extension.lastError) {
         console.log(chrome.extension.lastError.message)
       }
-      self.buffer.tags = getCheckboxesValue(document.querySelectorAll('input[name="tags[]"]:checked'))
+      // We currently only support one tag
+      self.buffer.tags = [document.querySelectorAll('input[name="tags"]:checked')[0].value]
       self.output.textContent = YAML.dump(self.buffer, 2, 2);
     })
   },

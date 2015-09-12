@@ -1,5 +1,5 @@
 var strip = function(text) {
-  var stripped = String(text).replace(/(\r\n|\n|\r)/g, '').replace(/^\s+|\s+$/g, '');
+  var stripped = String(text).replace(/(\r\n|\n|\r)/g, '').replace(/^\s+|\s+$/g, '').replace(/\s{2,}/g, '');
 
   return stripped
 }
