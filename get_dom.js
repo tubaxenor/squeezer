@@ -1,3 +1,9 @@
+var strip = function(text) {
+  var stripped = String(text).replace(/(\r\n|\n|\r)/g, '').replace(/^\s+|\s+$/g, '');
+
+  return stripped
+}
+
 var Meat = function(){
   var url,
       comment = "",
@@ -13,7 +19,7 @@ var Meat = function(){
 
   if(!url) { url = location.href; }
 
-  return { title: title, url: url, comment: comment }
+  return { title: strip(title), url: strip(url), comment: strip(comment) }
 }
 
 chrome.extension.sendMessage({
