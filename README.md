@@ -1,7 +1,7 @@
 Squeezer
 ========
 
-A chrome extension to squeeze out best part of a page
+A chrome extension to squeeze out contents for [Green Ruby News](https://greenruby.org)
 
 ### Usage
 
