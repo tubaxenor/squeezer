@@ -1,9 +1,41 @@
 <!DOCTYPE html>
-  <html style="">
+  <html style="overflow: auto">
   <head>
+    <script src="yaml.js"></script>
     <script src="popup.js"></script>
   </head>
-  <body style="width:400px; height: 300px">
+  <body style="min-width: 400px; height: 200px; padding: 15px">
+    <label>Tags: </label><br />
+    <input type="checkbox" name="tags[]" value="css3">
+    <label>css3</label>
+    <input type="checkbox" name="tags[]" value="design">
+    <label>design</label>
+    <input type="checkbox" name="tags[]" value="el">
+    <label>el</label>
+    <input type="checkbox" name="tags[]" value="go">
+    <label>go</label>
+    <br />
+    <input type="checkbox" name="tags[]" value="hk">
+    <label>hk</label>
+    <input type="checkbox" name="tags[]" value="html5">
+    <label>html5</label>
+    <input type="checkbox" name="tags[]" value="js">
+    <label>js</label>
+    <input type="checkbox" name="tags[]" value="mobile">
+    <label>mobile</label>
+    <br />
+    <input type="checkbox" name="tags[]" value="js">
+    <label>js</label>
+    <input type="checkbox" name="tags[]" value="rb" checked>
+    <label>rb</label>
+    <input type="checkbox" name="tags[]" value="tool">
+    <label>tool</label>
+    <input type="checkbox" name="tags[]" value="web">
+    <label>web</label>
+    <br />
+    <br />
     <button id="button">GET The Juice!</button>
+    <hr />
+    <pre id="output"></pre>
   </body>
 </html>

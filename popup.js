@@ -1,65 +1,33 @@
+var getCheckboxesValue = function(boxes) {
+  var result = [];
+  [].forEach.call(boxes, function(element) {
+    result.push(element.value);
+  });
+
+  return result;
+};
+
+
 var PopupController = function () {
-  this.button_ = document.getElementById('button');
+  this.button = document.getElementById('button');
   this.buffer = null;
-  this.addListeners_();
+  this.output = document.getElementById('output');
+  this.addListeners();
 };
 
 PopupController.prototype = {
-  /**
-   * A cached reference to the button element.
-   *
-   * @type {Element}
-   * @private
-   */
-  button_: null,
-
-
-  /**
-   * Adds event listeners to the button in order to capture a user's click, and
-   * perform some action in response.
-   *
-   * @private
-   */
-  addListeners_: function () {
-    this.button_.addEventListener('click', this.handleClick_.bind(this));
+  button: null,
+  addListeners: function () {
+    this.button.addEventListener('click', this.handleClick.bind(this));
   },
-
-  /**
-   * Handle a success/failure callback from the `browsingData` API methods,
-   * updating the UI appropriately.
-   *
-   * @private
-   */
-  // handleCallback_: function () {
-  //   var success = document.createElement('div');
-  //   success.classList.add('overlay');
-  //   success.setAttribute('role', 'alert');
-  //   success.textContent = 'Data has been cleared.';
-  //   document.body.appendChild(success);
-
-  //   setTimeout(function() { success.classList.add('visible'); }, 10);
-  //   setTimeout(function() {
-  //     if (close === false)
-  //       success.classList.remove('visible');
-  //     else
-  //       window.close();
-  //   }, 4000);
-  // },
-
-  /**
-   * When a user clicks the button, this method is called: it reads the current
-   * state of `timeframe_` in order to pull a timeframe, then calls the clearing
-   * method with appropriate arguments.
-   *
-   * @private
-   */
-  handleClick_: function () {
+  handleClick: function () {
     self = this;
     chrome.tabs.executeScript(null, {file: "get_dom.js"}, function () {
       if (chrome.extension.lastError) {
         console.log(chrome.extension.lastError.message)
       }
-      console.log(self.buffer);
+      self.buffer.tags = getCheckboxesValue(document.querySelectorAll('input[name="tags[]"]:checked'))
+      self.output.textContent = YAML.dump(self.buffer);
     })
   },
 };

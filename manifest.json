@@ -1,13 +1,12 @@
 {
-  "name": "Snapshot",
-  "description": "Snapshot the good part of your page",
+  "name": "Squeezer",
+  "description": "squeeze the good part of your page",
   "background": {
-    "scripts": ["popup.js"]
+    "scripts": ["popup.js", "yaml.js"]
   },
   "version": "0.0.1",
   "manifest_version": 2,
   "permissions": [
-    "bookmarks",
     "tabs",
     "http://*/",
     "https://*/"
