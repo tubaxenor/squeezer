@@ -1,12 +1,3 @@
-// var getCheckboxesValue = function(boxes) {
-//   var result = [];
-//   [].forEach.call(boxes, function(element) {
-//     result.push(element.value);
-//   });
-
-//   return result;
-// };
-
 var PopupController = function () {
   this.button = document.getElementById('button');
   this.buffer = null;
