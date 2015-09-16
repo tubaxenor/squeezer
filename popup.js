@@ -14,6 +14,25 @@ var PopupController = function () {
   this.addListeners();
 };
 
+var dump = function(input) {
+  output = "";
+
+  for (key in input) {
+    value = input[key];
+
+    if(value instanceof Array) {
+      output += "    " + key + ":" + "\n      - " + value[0] + "\n";
+    } else if (key == "title") {
+      output += "  - " + key + ":" + " '" + value + "'\n";
+    } else {
+      output += "    " + key + ":" + " '" + value + "'\n";
+    }
+  }
+
+  return output;
+}
+
+
 PopupController.prototype = {
   button: null,
   addListeners: function () {
@@ -27,7 +46,7 @@ PopupController.prototype = {
       }
       // We currently only support one tag
       self.buffer.tags = [document.querySelectorAll('input[name="tags"]:checked')[0].value]
-      self.output.textContent = YAML.dump(self.buffer, 2, 2);
+      self.output.textContent = dump(self.buffer);
     })
   },
 };
