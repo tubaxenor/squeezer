@@ -31,7 +31,7 @@ var Meat = function(){
 
   if(!url) { url = location.href; }
 
-  return { title: strip(title), url: strip(url), comment: strip(comment), date: date }
+  return { title: strip(title), url: strip(url), comment: strip(comment), pubdate: date }
 }
 
 chrome.extension.sendMessage({

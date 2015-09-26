@@ -14,9 +14,9 @@ var dump = function(input) {
     if(value instanceof Array) {
       output += "    " + key + ":" + "\n      - " + value[0] + "\n";
     } else if (key == "title") {
-      output += "  - " + key + ":" + " '" + value + "'\n";
+      output += "  - " + key + ":" + " \"" + value + "\"\n";
     } else {
-      output += "    " + key + ":" + " '" + value + "'\n";
+      output += "    " + key + ":" + " \"" + value + "\"\n";
     }
   }
 
